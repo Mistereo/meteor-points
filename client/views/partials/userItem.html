@@ -2,6 +2,6 @@
   <li class="list__item user-item{{#if status.idle}} user-item--idle{{/if}}">
     <span class="user-item__rank user-item__rank--{{rank rating}}"><i class="fa fa-circle"></i></span>
     <span class="user-item__username">{{username}}</span>
-    <span class="user-item__rating">{{rating}}</span>
+    <span class="user-item__rating">{{round rating}}</span>
   </li>
 </template>

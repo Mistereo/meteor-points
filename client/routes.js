@@ -11,6 +11,9 @@ Router.route('/', {
         var username = user.username;
         var rating = user.rating;
         return filterCheck(username, usersFilter) || filterCheck(rating, usersFilter);
+      })
+      .sort(function (a, b) {
+        return b.rating - a.rating;
       });
     var games = Games
       .find({status: 'playing'})

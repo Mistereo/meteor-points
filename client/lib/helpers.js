@@ -27,3 +27,7 @@ Template.registerHelper('rank', function (rating) {
   if (id >= ranks.length) id = ranks.length - 1;
   return ranks[id]
 });
+
+Template.registerHelper('round', function (num) {
+  return Math.round(Number(num));
+});

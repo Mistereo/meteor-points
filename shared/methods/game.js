@@ -1,3 +1,24 @@
+function updateRatings(blue, red, winner) {
+  if (!winner) {
+    return;
+  }
+  var blueScore = 0;
+  if (winner == Points.BLUE) {
+    blueScore = 1;
+  }
+  var ratings = Rating.calc(blue.rating, red.rating, blueScore);
+  Users.update(blue._id, {
+    $set: {
+      rating: ratings.blue
+    }
+  });
+  Users.update(red._id, {
+    $set: {
+      rating: ratings.red
+    }
+  });
+}
+
 Meteor.methods({
   'game:move': function (gameId, move) {
     check(this.userId, String);
@@ -6,7 +27,7 @@ Meteor.methods({
       x: Number,
       y: Number
     });
-    //TODO improve, check permissions
+    //TODO improve
     var game = Games.findOne({
       $or: [{
         _id: gameId,
@@ -52,7 +73,9 @@ Meteor.methods({
     }
     console.log(color);
     if (Points.stop(game, color)) {
-      console.log('stopped');
+      if (game.status == 'finished' && game.rules.type == 'rated') {
+        updateRatings(game.blue, game.red, game.winner);
+      }
       Games.update(gameId, game);
     }
   },
@@ -76,8 +99,10 @@ Meteor.methods({
       color = Points.RED;
     }
     if (Points.resign(game, color)) {
+      if (game.status == 'finished' && game.rules.type == 'rated') {
+        updateRatings(game.blue, game.red, game.winner);
+      }
       Games.update(gameId, game);
     }
-    //TODO implement
   }
 });
