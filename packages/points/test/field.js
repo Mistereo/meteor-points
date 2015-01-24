@@ -10,7 +10,7 @@ Tinytest.add('Field.create()', function (test) {
   test.equal(field.height, height);
   test.include(field, 'state');
   test.equal(field.state.length, width * height);
-  for (var i=0; i<field.state.length; i++) {
+  for (var i = 0; i < field.state.length; i++) {
     test.equal(field.state[i], value);
   }
 });
@@ -82,7 +82,7 @@ Tinytest.add('Field.clone()', function (test) {
   test.equal(field.width, clone.width);
   test.equal(field.height, clone.height);
   test.equal(field.state.length, clone.state.length);
-  for (var i=0; i<field.state.length; i++) {
+  for (var i = 0; i < field.state.length; i++) {
     test.equal(field.state[i], clone.state[i]);
   }
 });

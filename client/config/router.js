@@ -2,8 +2,8 @@ Router.configure({
   layoutTemplate: 'base',
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
-  onBeforeAction: function() {
-    document.title = "Игра точки!";
+  onBeforeAction: function () {
+    document.title = 'Игра точки!';
     this.next();
   }
 });

@@ -4,7 +4,7 @@ Template.game.helpers({
     return player == movingColor;
   },
   mousePosition: function () {
-    var mouse = Session.get('mousePosition') || { x: 0, y: 0 };
+    var mouse = Session.get('mousePosition') || {x: 0, y: 0};
     return mouse.x + ' ' + mouse.y;
   },
   gameWinner: function () {
@@ -22,7 +22,9 @@ Template.game.rendered = function () {
   var canvas = this.find('#gameField');
   this.autorun(function () {
     var game = Template.currentData().game;
-    if (!game) return;
+    if (!game) {
+      return;
+    }
     if (!renderer) {
       renderer = new Points.Renderer(canvas, {
         xSize: game.rules.field.width,

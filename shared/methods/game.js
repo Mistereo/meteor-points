@@ -27,7 +27,7 @@ Meteor.methods({
       x: Number,
       y: Number
     });
-    //TODO improve
+    // TODO improve
     var game = Games.findOne({
       $or: [{
         _id: gameId,

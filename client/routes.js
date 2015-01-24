@@ -2,8 +2,8 @@ Router.route('/', {
   name: 'index',
   data: function () {
     var userId = Meteor.userId();
-    var usersFilter = (Session.get('users:filter') || "");
-    var gamesFilter = (Session.get('games:filter') || "");
+    var usersFilter = (Session.get('users:filter') || '');
+    var gamesFilter = (Session.get('games:filter') || '');
     var users = Users
       .find()
       .fetch()

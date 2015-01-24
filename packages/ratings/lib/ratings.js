@@ -5,7 +5,7 @@ function K(rating) {
 }
 
 function Q(rating) {
-  return Math.exp(rating/400);
+  return Math.exp(rating / 400);
 }
 
 /**
@@ -42,7 +42,7 @@ Rating.expected = function (blue, red) {
   var qRed = Q(red);
   var denominator = qBlue + qRed;
   return {
-    blue: qBlue/denominator,
-    red: qRed/denominator
+    blue: qBlue / denominator,
+    red: qRed / denominator
   }
 };

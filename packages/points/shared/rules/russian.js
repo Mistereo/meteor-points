@@ -32,14 +32,14 @@ RussianRules.apply = function (game, move) {
   Field.color(field, move.x, move.y, move.color);
   var color = move.color;
   var captured = false;
-  for (var t=0; t<4; t++) {
+  for (var t = 0; t < 4; t++) {
     var x = move.x + dx[t];
     var y = move.y + dy[t];
     if (processField(game.field, x, y, color)) {
       captured = true;
     }
   }
-  //Check for suicide
+  // Check for suicide
   var opponentColor = (color == Points.BLUE) ? Points.RED : Points.BLUE;
   if (!captured) {
     processField(game.field, move.x, move.y, opponentColor);
@@ -63,7 +63,9 @@ RussianRules.score = function (game) {
   };
 
   Field.each(field, function (x, y) {
-    if (Field.free(this, x, y)) return;
+    if (Field.free(this, x, y)) {
+      return;
+    }
     if (Field.color(this, x, y) == Points.RED) {
       score.blue++;
     }
@@ -78,14 +80,20 @@ function processField(field, sx, sy, color) {
   var used = Field.create(field.width, field.height, 0);
   var enemy = false;
   var Q = [];
-  Q.push({ x: sx, y: sy });
-  while(Q.length != 0) {
+  Q.push({x: sx, y: sy});
+  while (Q.length != 0) {
     var p = Q.pop();
     var x = p.x;
     var y = p.y;
-    if (!Field.contains(field, x, y)) return false;
-    if (Field.get(used, x, y)) continue;
-    if (Field.color(field, x, y) == color && Field.free(field, x, y)) continue;
+    if (!Field.contains(field, x, y)) {
+      return false;
+    }
+    if (Field.get(used, x, y)) {
+      continue;
+    }
+    if (Field.color(field, x, y) == color && Field.free(field, x, y)) {
+      continue;
+    }
 
     Field.set(used, x, y, CAPTURED);
     if (Field.color(field, x, y) == color) {
@@ -94,7 +102,7 @@ function processField(field, sx, sy, color) {
       enemy = true;
     }
 
-    for (var i=0; i<4; i++) {
+    for (var i = 0; i < 4; i++) {
       Q.push({
         x: x + dx[i],
         y: y + dy[i]

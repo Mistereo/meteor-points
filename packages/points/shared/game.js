@@ -18,12 +18,12 @@ Points.createGame = function (blue, red, rules) {
   var game = {
     date: new Date(),
     status: 'playing',
-    score: { blue: 0, red: 0 },
+    score: {blue: 0, red: 0},
     winner: null,
     blue: blue,
     red: red,
     moving: Points.BLUE,
-    stopped: { blue: false, red: false },
+    stopped: {blue: false, red: false},
     rules: rules
   };
   Points.Rules[game.rules.set].init(game);

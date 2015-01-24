@@ -16,7 +16,7 @@ Field.create = function (width, height, value) {
     width: width,
     height: height
   };
-  for (var i=0; i<field.width * field.height; i++) {
+  for (var i = 0; i < field.width * field.height; i++) {
     if (arguments.length == 3) {
       field.state.push(value);
     } else {
@@ -35,9 +35,9 @@ Field.contains = function (field, x, y) {
 };
 
 Field.each = function (field, func) {
-  for (var i=0; i<field.state.length; i++) {
+  for (var i = 0; i < field.state.length; i++) {
     var x = i % field.width;
-    var y = Math.floor(i/field.width);
+    var y = Math.floor(i / field.width);
     func.call(field, x, y, field.state[i]);
   }
 };
@@ -61,8 +61,12 @@ Field.color = function (field, x, y, color) {
 };
 Field.getColor = function (field, x, y) {
   var data = Field.get(field, x, y);
-  if ((data & BLUE)) return Points.BLUE;
-  if ((data & RED )) return Points.RED;
+  if ((data & BLUE)) {
+    return Points.BLUE;
+  }
+  if ((data & RED)) {
+    return Points.RED;
+  }
   return Points.EMPTY;
 };
 Field.setColor = function (field, x, y, color) {
@@ -89,8 +93,12 @@ Field.owner = function (field, x, y, owner) {
 };
 Field.getOwner = function (field, x, y) {
   var data = Field.get(field, x, y);
-  if ((data & OWNER_BLUE)) return Points.BLUE;
-  if ((data & OWNER_RED)) return Points.RED;
+  if ((data & OWNER_BLUE)) {
+    return Points.BLUE;
+  }
+  if ((data & OWNER_RED)) {
+    return Points.RED;
+  }
   return null;
 };
 Field.setOwner = function (field, x, y, owner) {
@@ -122,7 +130,7 @@ Field.empty = function (field, x, y) {
 
 Field.clone = function (field) {
   var clone = Field.create(field.width, field.height);
-  for (var i=0; i<field.state.length; i++) {
+  for (var i = 0; i < field.state.length; i++) {
     clone.state[i] = field.state[i];
   }
   return clone;

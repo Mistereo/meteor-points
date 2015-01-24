@@ -22,7 +22,7 @@ Template.index.events({
     }
   },
   'click #createGameFormSubmit': function (event) {
-    //TODO: implement
+    // TODO: implement
     var form = $('#createGameForm')[0];
     var rules = {
       type: form.type.value,

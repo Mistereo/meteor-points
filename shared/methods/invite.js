@@ -1,10 +1,10 @@
-leaveAllInvites = function(userId) {
+leaveAllInvites = function (userId) {
   Accepts.remove({
     'player._id': userId
   });
 };
 
-removeAllInvites = function(userId) {
+removeAllInvites = function (userId) {
   Invites.find({
     'player._id': userId
   }).forEach(function (invite) {
@@ -32,8 +32,8 @@ Meteor.methods({
         increment: Number
       }
     });
-    //TODO validate rules
-    //TODO deny multiple invites
+    // TODO validate rules
+    // TODO deny multiple invites
     rules = _.defaults(rules, Points.defaultRules);
     var user = Users.findOne(this.userId, {
       fields: {

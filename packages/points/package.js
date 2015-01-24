@@ -4,7 +4,7 @@ Package.describe({
   version: '1.0.0'
 });
 
-Package.onUse(function(api) {
+Package.onUse(function (api) {
   api.versionsFrom('1.0.2.1');
   api.addFiles([
     'shared/points.js',
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.export('Points');
 });
 
-Package.onTest(function(api) {
+Package.onTest(function (api) {
   api.use('tinytest');
   api.use('mistereo:points');
   api.addFiles([

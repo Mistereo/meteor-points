@@ -1,11 +1,11 @@
 var Field = Points.Field;
 
-var dx = [ 0, 1, 1, 1, 0, -1, -1, -1 ];
-var dy = [ 1, 1, 0, -1, -1, -1, 0, 1 ];
+var dx = [0, 1, 1, 1, 0, -1, -1, -1];
+var dy = [1, 1, 0, -1, -1, -1, 0, 1];
 
 Renderer.defaults = {
-  blueColor: "#4169E1",
-  redColor: "#DC143C",
+  blueColor: '#4169E1',
+  redColor: '#DC143C',
   gridColor: '#DDDDDD',
 
   margin: 8,
@@ -47,8 +47,8 @@ function Renderer(canvas, options) {
   this.canvas.onmousemove = function (event) {
     var x = event.pageX - $(self.canvas).offset().left;
     var y = event.pageY - $(self.canvas).offset().top;
-    x = Math.round((x - self.opt.margin-1)/self.opt.cellSize);
-    y = Math.round((y - self.opt.margin-1)/self.opt.cellSize);
+    x = Math.round((x - self.opt.margin - 1) / self.opt.cellSize);
+    y = Math.round((y - self.opt.margin - 1) / self.opt.cellSize);
     if (self.mouse.x == x && self.mouse.y == y) {
       return;
     }
@@ -68,7 +68,7 @@ Renderer.prototype.renderField = function (field) {
   this.clear();
   Field.each(field, function (x, y) {
     if (!Field.empty(field, x, y)) {
-      self.renderPoint({ x: x, y: y, color: Field.color(field, x, y) });
+      self.renderPoint({x: x, y: y, color: Field.color(field, x, y)});
     }
     if (Field.owner(field, x, y)) {
       var owner = Field.owner(field, x, y);
@@ -79,7 +79,7 @@ Renderer.prototype.renderField = function (field) {
         opt.redColor;
       proxyCtx.beginPath();
       var started = false;
-      for (var i=0; i<8; i++) {
+      for (var i = 0; i < 8; i++) {
         var tx = x + dx[i];
         var ty = y + dy[i];
         if (Field.owner(field, tx, ty) == owner || Field.color(field, tx, ty) == owner) {
@@ -124,13 +124,13 @@ Renderer.prototype.renderGrid = function () {
   ctx.strokeStyle = opt.gridColor;
   ctx.lineWidth = opt.lineWidth;
 
-  for (var i=0; i<opt.xSize; i++) {
+  for (var i = 0; i < opt.xSize; i++) {
     var x = opt.margin + i * opt.cellSize + 0.5;
     ctx.moveTo(x, 0);
     ctx.lineTo(x, this.height());
     ctx.stroke();
   }
-  for (var i=0; i<opt.ySize; i++) {
+  for (var i = 0; i < opt.ySize; i++) {
     var y = opt.margin + i * opt.cellSize + 0.5;
     ctx.moveTo(0, y);
     ctx.lineTo(this.width(), y);
@@ -141,12 +141,12 @@ Renderer.prototype.renderGrid = function () {
   return this;
 };
 
-Renderer.prototype.cc = function(x) {
+Renderer.prototype.cc = function (x) {
   var opt = this.opt;
   return opt.margin + x * opt.cellSize + 0.5;
 };
 
-Renderer.prototype.clear = function() {
+Renderer.prototype.clear = function () {
   var ctx = this.ctx;
   ctx.clearRect(0, 0, this.width(), this.height());
   this.renderGrid();
