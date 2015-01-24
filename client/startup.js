@@ -7,7 +7,6 @@ Meteor.autorun(function () {
     }]
   }).observe({
     added: function (game) {
-      console.log(game);
       setTimeout(function () {
         Router.go('game', {
           _id: game._id

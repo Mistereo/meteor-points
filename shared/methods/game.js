@@ -71,7 +71,6 @@ Meteor.methods({
     } else {
       color = Points.RED;
     }
-    console.log(color);
     if (Points.stop(game, color)) {
       if (game.status == 'finished' && game.rules.type == 'rated') {
         updateRatings(game.blue, game.red, game.winner);
