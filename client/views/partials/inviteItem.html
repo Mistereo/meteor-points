@@ -1,7 +1,7 @@
 <template name="inviteItem">
   <li class="list__item game-item game-item--invite{{#if my}} game-item--owner_me{{/if}}">
     <div class="game-item__line">
-      <span class="game-item__rating">{{player.rating}}</span>
+      <span class="game-item__rating">{{round player.rating}}</span>
       <span class="game-item__username">{{player.username}}</span>
       <span class="game-item__rules">{{{formatRules rules}}}</span>
     </div>
@@ -10,7 +10,7 @@
         <ul class="list">
           {{#each accepts}}
             <li class="list__item game-item__opponent">
-              <span class="game-item__rating">{{player.rating}}</span>
+              <span class="game-item__rating">{{round player.rating}}</span>
               <span class="game-item__username">{{player.username}}</span>
               <a class="game-item__start" href="#">начать игру</a>
             </li>
@@ -25,7 +25,7 @@
         <div class="game-item__line">
           <ul class="list">
             <li class="list__item game-item__opponent">
-              <span class="game-item__rating">{{currentUser.rating}}</span>
+              <span class="game-item__rating">{{round currentUser.rating}}</span>
               <span class="game-item__username">{{currentUser.username}}</span>
               <a class="game-item__leave" href="#">отменить</a>
             </li>

@@ -1,12 +1,12 @@
 <template name="gameItem">
   <li class="list__item game-item{{#if my}} game-item--owner_me{{/if}}">
     <div class="game-item__line">
-      <span class="game-item__rating">{{blue.rating}}</span>
+      <span class="game-item__rating">{{round blue.rating}}</span>
       <span class="game-item__username">{{blue.username}}</span>
       <span class="game-item__rules">{{{formatRules rules}}}</span>
     </div>
     <div class="game-item__line">
-      <span class="game-item__rating">{{red.rating}}</span>
+      <span class="game-item__rating">{{round red.rating}}</span>
       <span class="game-item__username">{{red.username}}</span>
       <a class="game-item__watch" href="{{pathFor route='game'}}">смотреть</a>
     </div>
