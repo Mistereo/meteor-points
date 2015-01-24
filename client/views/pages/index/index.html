@@ -1,3 +1,74 @@
 <template name="index">
-  
+{{#if modals.newGame}}
+  {{> newGameModal}}
+{{/if}}
+<div class="view view--bordered main">
+<div class="block sidebar">
+  <div class="block__header">
+    <img class="sidebar__logo" src="/images/logo.png" alt="Точки онлайн"/>
+  </div>
+  <div class="block__content">
+    <div class="sidebar__items-group">
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-user"></i></a>
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-trophy"></i></a>
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-envelope"></i></a>
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-puzzle-piece"></i></a>
+    </div>
+    <div class="sidebar__items-group sidebar__items-group--bottom">
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-cog"></i></a>
+      <a class="sidebar__item" href="#"><i class="sidebar__icon fa fa-sign-out"></i></a>
+    </div>
+  </div>
+</div>
+<div class="block users">
+  <div class="block__header">
+    <div class="controls controls--full-width">
+      <input id="usersFilterField" class="search" placeholder="Игроки онлайн:" type="text"/>
+    </div>
+  </div>
+  <div class="block__content">
+    <ul class="list">
+      {{#each users}}
+        {{> userItem}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+<div class="block chat">
+  <div class="block__header">
+    <h3 class="block__name">Чат:</h3>
+  </div>
+  <div class="block__content">
+    <div class="chat__messages">
+      {{#each messages}}
+        {{> messageItem}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="block__footer">
+    <div class="controls controls--full-width">
+      <input id="mainChatField" class="chat__field" type="text"/>
+      <button id="mainChatSubmit" class="btn btn-default chat__submit">Отправить</button>
+    </div>
+  </div>
+</div>
+<div class="block games">
+  <div class="block__header">
+    <div class="controls controls--full-width">
+      <input id="gamesFilterField" class="search" placeholder="Игры:" type="text"/>
+      <button id="createGameButton" class="btn btn-primary">Новая игра</button>
+    </div>
+  </div>
+  <div class="block__content">
+    <ul class="list">
+      {{#each invites}}
+        {{> inviteItem}}
+      {{/each}}
+      {{#each games}}
+        {{> gameItem}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+</div>
 </template>

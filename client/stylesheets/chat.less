@@ -1,0 +1,37 @@
+@import "constants";
+
+.chat {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.chat__messages {
+  padding: 5px;
+}
+
+.chat__field {
+  flex-grow: 1;
+  line-height: normal;
+  vertical-align: middle;
+  font-size: 80%;
+  outline: none;
+  border: 1px solid @silver;
+  display: block;
+  padding: 0 5px;
+  margin: 5px 0 5px 5px;
+}
+
+.chat__field:focus {
+  border: 1px solid dodgerblue;
+  outline: none;
+}
+
+.chat__submit,
+.chat__submit:hover,
+.chat__submit:active,
+.chat__submit:focus {
+  border: 1px solid @silver;
+  border-left: none !important;
+  border-radius: 0 4px 4px 0 !important;
+  margin: 5px 5px 5px 0 !important;
+}

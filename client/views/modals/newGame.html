@@ -1,0 +1,83 @@
+<template name="newGameModal">
+  <div class="modal modal--new-game">
+    <div class="block modal__content">
+      <div class="block__header">
+        <h3 class="block__name">Настройки игры:</h3>
+      </div>
+      <div class="block__content">
+        <form id="createGameForm" class="pure-form pure-form-aligned">
+          <fieldset>
+            <div class="pure-control-group">
+              <label for="gameType">Тип игры:</label>
+              <select id="gameType" name="type">
+                <option value="rated" disabled>рейтинговая</option>
+                <option value="free" selected>свободная</option>
+                <option value="tournament" disabled>турнирная</option>
+              </select>
+            </div>
+            <div class="pure-control-group">
+              <label for="gameSize">Размер поля:</label>
+              <select id="gameSize" name="size">
+                <option value="15">15×15</option>
+                <option value="20">20×20</option>
+                <option value="25" selected>25×25</option>
+                <option value="30">30×30</option>
+              </select>
+            </div>
+            <div class="pure-control-group">
+              <label for="gameInitialTime">Начальное время:</label>
+              <select id="gameInitialTime" name="initialTime">
+                <option value="1">1 минута</option>
+                <option value="2">2 минуты</option>
+                <option value="5">5 минут</option>
+                <option value="10" selected>10 минут</option>
+                <option value="20">20 минут</option>
+                <option value="30">30 минут</option>
+                <option value="60">60 минут</option>
+              </select>
+            </div>
+            <div class="pure-control-group">
+              <label for="gameIncrementTime">Добавочное время:</label>
+              <select id="gameIncrementTime" name="incrementTime">
+                <option value="5">5 секунд</option>
+                <option value="10">10 секунд</option>
+                <option value="20" selected>20 секунд</option>
+                <option value="30">30 секунд</option>
+                <option value="60">1 минута</option>
+                <option value="120">2 минуты</option>
+                <option value="300">5 минут</option>
+              </select>
+            </div>
+            <div class="pure-control-group">
+              <label for="gameInstantWin">Выигрыш при разнице:</label>
+              <select id="gameInstantWin" name="instantWin" disabled>
+                <option value="0" selected>отключено</option>
+                <option value="1">1 точка</option>
+                <option value="5">5 точек</option>
+                <option value="10">10 точек</option>
+                <option value="15">15 точек</option>
+                <option value="20">20 точек</option>
+              </select>
+            </div>
+            <div class="pure-controls">
+              <label for="gameDisallowUndo" class="pure-checkbox">
+                <input id="gameDisallowUndo" type="checkbox" disabled>
+                Возврат хода
+              </label>
+              <label for="gameDisallowTimeAdding" class="pure-checkbox">
+                <input id="gameDisallowTimeAdding" type="checkbox" disabled>
+                Добавление времени
+              </label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="block__footer">
+        <div class="controls controls--right">
+          <button id="modalCancel" class="btn btn-default">Отмена</button>
+          <button id="createGameFormSubmit" class="btn btn-primary">Создать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,28 @@
+@import "constants";
+
+.search {
+  background: url("../images/search_icon.png") no-repeat 2px 4px;
+  font-size: 100%;
+  flex: 1 0 auto;
+  line-height: normal;
+  vertical-align: middle;
+  outline: none;
+  border: 1px solid transparent;
+  display: block;
+  padding: 0 0 0 22px;
+  margin: 5px;
+}
+
+.search::placeholder {
+  color: inherit;
+}
+
+.search:hover {
+  border: 1px solid @silver;
+  outline: none;
+}
+
+.search:focus {
+  border: 1px solid dodgerblue;
+  outline: none;
+}

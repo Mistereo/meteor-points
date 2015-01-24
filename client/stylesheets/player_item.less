@@ -1,0 +1,84 @@
+@import "constants";
+
+.player-item {
+  padding: 5px;
+  position: relative;
+}
+.player-item:first-child {
+  border-top: none;
+}
+.player-item--active {
+  .player-item__arrow {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    z-index: 1000;
+  }
+}
+.player-item.player-item--blue {
+  .player-item__username {
+    color: @blue;
+  }
+  .player-item__score-icon {
+    color: @blue;
+  }
+}
+.player-item.player-item--red {
+  .player-item__username {
+    color: @red;
+  }
+  .player-item__score-icon {
+    color: @red;
+  }
+}
+
+.player-item__avatar {
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid @silver;
+  float: left;
+}
+
+.player-item__username {
+  display: block;
+  float: left;
+  margin: 5px 0 0 5px;
+  font-weight: bold;
+}
+
+.player-item__timer {
+  font-size: 120%;
+  position: relative;
+  display: block;
+  float: right;
+  margin: 2px;
+}
+
+.player-item__timer.player-item__timer--warn {
+  color: @red;
+  animation-name: pulse;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.player-item__score {
+  float: left;
+  clear: right;
+  display: block;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.player-item__score-icon {
+  font-size: 90%;
+  margin: 0 4px 0 0;
+}
+
+.player-item__arrow {
+  display: none;
+}
+
+

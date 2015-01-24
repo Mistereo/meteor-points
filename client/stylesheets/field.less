@@ -1,0 +1,49 @@
+@import "constants";
+
+.field {
+
+}
+
+@keyframes alarm-field {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.field__container {
+
+  background: #fcfcfc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.field__canvas {
+  background: @white;
+  cursor: default;
+  align-self: center;
+  border: 1px solid @gray;
+  flex: 0 0 auto;
+}
+
+.field__canvas--alarming {
+  animation: alarm-field 3s;
+  animation-iteration-count: infinite;
+}
+
+.field__message {
+  font-size: 80%;
+  margin: 10px;
+}
+
+.field__message.field__message--warn {
+  color: @red;
+}

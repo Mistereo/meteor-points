@@ -1,0 +1,60 @@
+@import "constants";
+
+@sidebarBackground: #f0f0f0;
+
+.sidebar {
+  background: @sidebarBackground;
+  width: 40px;
+  float: left;
+  overflow: hidden;
+  flex: 0 0 40px;
+
+  .block__content {
+    overflow: hidden;
+  }
+}
+
+.sidebar__items-group {
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.sidebar__items-group--bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.sidebar__item {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 48px;
+}
+
+a.sidebar__item {
+  color: @gray;
+}
+a.sidebar__item:hover {
+  background: @silver;
+  color: @gray;
+}
+
+.sidebar__icon {
+  font-size: 24px;
+}
+
+.sidebar__logo {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  float: left;
+}

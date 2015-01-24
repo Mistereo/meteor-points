@@ -1,0 +1,7 @@
+<template name="messageItem">
+  <p class="message message--owner_{{owner}}">
+    <span class="message__date">{{formatDate date 'HH:mm'}}</span>
+    <span class="message__username">{{sender.username}}:</span>
+    <span class="message__text">{{text}}</span>
+  </p>
+</template>

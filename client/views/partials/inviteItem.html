@@ -1,0 +1,41 @@
+<template name="inviteItem">
+  <li class="list__item game-item game-item--invite{{#if my}} game-item--owner_me{{/if}}">
+    <div class="game-item__line">
+      <span class="game-item__rating">{{player.rating}}</span>
+      <span class="game-item__username">{{player.username}}</span>
+      <span class="game-item__rules">{{{formatRules rules}}}</span>
+    </div>
+    {{#if my}}
+      <div class="game-item__line">
+        <ul class="list">
+          {{#each accepts}}
+            <li class="list__item game-item__opponent">
+              <span class="game-item__rating">{{player.rating}}</span>
+              <span class="game-item__username">{{player.username}}</span>
+              <a class="game-item__start" href="#">начать игру</a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="game-item__line">
+        <a class="game-item__remove" href="#">отменить</a>
+      </div>
+    {{else}}
+      {{#if joinedByMe}}
+        <div class="game-item__line">
+          <ul class="list">
+            <li class="list__item game-item__opponent">
+              <span class="game-item__rating">{{currentUser.rating}}</span>
+              <span class="game-item__username">{{currentUser.username}}</span>
+              <a class="game-item__leave" href="#">отменить</a>
+            </li>
+          </ul>
+        </div>
+      {{else}}
+        <div class="game-item__line">
+          <a class="game-item__accept" href="#">принять</a>
+        </div>
+      {{/if}}
+    {{/if}}
+  </li>
+</template>

@@ -1,0 +1,85 @@
+<template name="game">
+  <div class="view view--bordered game">
+    <div class="block field">
+      <div class="block__header">
+        <div class="controls">
+          <button id="gameBackButton" class="btn btn-default">Назад</button>
+        </div>
+        <div class="controls controls--right">
+          {{#if game.winner}}
+            <span class="field__message">Игра окончена, победитель: {{gameWinner}}</span>
+          {{else}}
+            {{#if game.my}}
+              <button id="gameResignButton" class="btn btn-warning">Сдаться</button>
+              <button id="gameStopButton" class="btn btn-primary">Стоп</button>
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+      <div class="block__content field__container">
+        <canvas id="gameField" class="field__canvas">
+          Canvas не поддерживается. Обновите браузер.
+        </canvas>
+      </div>
+      <div class="block__footer">
+        <h3 class="block__name">{{{formatRules game.rules}}}</h3>
+        <div class="controls controls--right">
+          <h3 class="block__name">{{mousePosition}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="block game-sidebar">
+      <div class="block__content view view--vertical">
+        <div class="block players">
+          <div class="block__header">
+            <h3 class="block__name">Игроки:</h3>
+          </div>
+          <div class="block__content">
+            <ul class="list">
+              <li class="list__item player-item player-item--blue{{#if isActivePlayer 'blue'}} player-item--active{{/if}}">
+                <img class="player-item__arrow" src="/images/arrow.png" alt=""/>
+                <img class="player-item__avatar"
+                     src="{{identicon game.blue.username}}"
+                     alt="{{game.blue.username}}"/>
+                <span class="player-item__username">{{game.blue.username}}</span>
+                <span class="player-item__timer">&infin;</span>
+                <span class="player-item__score">
+                  <i class="player-item__score-icon fa fa-circle"></i>{{game.score.blue}}
+                </span>
+              </li>
+              <li class="list__item player-item player-item--red{{#if isActivePlayer 'red'}} player-item--active{{/if}}">
+                <img class="player-item__arrow" src="/images/arrow.png" alt=""/>
+                <img class="player-item__avatar"
+                     src="{{identicon game.red.username}}"
+                     alt="{{game.red.username}}"/>
+                <span class="player-item__username">{{game.red.username}}</span>
+                <span class="player-item__timer">&infin;</span>
+                <span class="player-item__score">
+                  <i class="player-item__score-icon fa fa-circle"></i>{{game.score.red}}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="block chat">
+          <div class="block__header">
+            <h3 class="block__name">Игровой чат:</h3>
+          </div>
+          <div class="block__content">
+            <div class="chat__messages">
+              {{#each messages}}
+                {{> messageItem}}
+              {{/each}}
+            </div>
+          </div>
+          <div class="block__footer">
+            <div class="controls controls--full-width">
+              <input id="gameChatField" class="chat__field" type="text"/>
+              <button id="gameChatSubmit" class="btn btn-default chat__submit">Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

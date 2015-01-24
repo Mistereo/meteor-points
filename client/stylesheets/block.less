@@ -1,0 +1,64 @@
+@import "constants";
+
+.block {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: auto;
+  float: left;
+  color: @black;
+}
+
+.block__header {
+  background: @white;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  float: left;
+  flex: 0 0 auto;
+  border-bottom: 1px solid @silver;
+}
+
+.block__name {
+  font-weight: normal;
+  vertical-align: baseline;
+  line-height: 30px;
+  padding: 0;
+  margin: 5px 10px;
+  float: left;
+}
+
+.block__footer {
+  display: block;
+  background: @blockFooterBackgroundColor;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  float: left;
+  flex: 0 0 auto;
+  border-top: 1px solid @silver;
+}
+
+.block__content {
+  display: block;
+  font-size: 80%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: auto;
+  float: left;
+  height: auto;
+  flex: 1 1 auto;
+}

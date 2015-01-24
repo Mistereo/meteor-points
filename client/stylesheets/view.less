@@ -1,0 +1,45 @@
+@import "constants";
+
+.view {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  overflow: visible;
+}
+
+.view.view--bordered > * {
+  border-right: 1px solid @silver;
+}
+.view.view--bordered > *:last-child {
+  border-right: none;
+}
+.view--vertical {
+  flex-direction: column;
+}
+
+.view.main {
+  .users {
+    flex: 1 0 25%;
+  }
+  .chat {
+    flex: 1 1 40%;
+  }
+  .games {
+    flex: 1 0 35%;
+  }
+}
+
+.view.game {
+  .field {
+    flex: 1 0 75%;
+  }
+  .game-sidebar {
+    flex: 1 0 25%;
+    .player {
+        height: auto;
+    }
+  }
+}

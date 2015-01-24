@@ -1,0 +1,38 @@
+@import "constants";
+
+.message {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.message--owner_me .message__username {
+  color: @orange;
+}
+.message--owner_blue .message__username {
+  color: @blue;
+}
+.message--owner_red .message__username {
+  color: @red;
+}
+.message.message--notice {
+  color: @gray;
+}
+
+.message__hightlight {
+  color: @green;
+  font-weight: bold;
+}
+
+.message__date {
+  font-size: 90%;
+  color: @gray;
+}
+
+.message__username {
+  font-weight: bold;
+}
+
+.message__text {
+
+}

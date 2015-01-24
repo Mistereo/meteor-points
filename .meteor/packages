@@ -9,3 +9,9 @@ accounts-password
 iron:router
 momentjs:moment
 sacha:spin
+mistereo:ratings
+lauricio:less-autoprefixer
+mistereo:points
+mistereo:identicon
+mizzao:user-status
+dcsan:accounts-guest

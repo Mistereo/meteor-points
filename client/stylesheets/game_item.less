@@ -1,0 +1,57 @@
+@import "constants";
+
+.game-item {
+  box-sizing: border-box;
+  display: block;
+  margin: 4px 4px 0;
+  padding: 5px;
+  border: 1px solid @silver;
+}
+.game-item:last-child {
+  margin: 4px;
+}
+.game-item.game-item--invite {
+  border: 1px solid dodgerblue;
+}
+.game-item.game-item--owner_me {
+  background: #FAF0E6;
+  border-color: @silver;
+}
+
+.game-item__line {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.game-item__rating {
+  color: @gray;
+}
+.game-item__rating:before {
+  content: "[";
+}
+.game-item__rating:after {
+  content: "]";
+}
+
+.game-item__rules {
+  float: right;
+}
+
+.game-item__accept {
+
+}
+
+.game-item__watch {
+  float: right;
+}
+
+.game-item__remove,
+.game-item__leave {
+  color: @orange;
+  float: right;
+}
+
+.game-item__start {
+  float: right;
+}
