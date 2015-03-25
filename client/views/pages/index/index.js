@@ -24,12 +24,13 @@ Template.index.events({
   'click #createGameFormSubmit': function (event) {
     // TODO: implement
     var form = $('#createGameForm')[0];
+    var size = form.size.value.split(',');
     var rules = {
       type: form.type.value,
       set: 'russian',
       field: {
-        width: parseInt(form.size.value),
-        height: parseInt(form.size.value)
+        width: parseInt(size[0]),
+        height: parseInt(size[1])
       },
       clock: {
         initial: parseInt(form.initialTime.value) * 60,
