@@ -14,6 +14,24 @@ Template.game.helpers({
     } else if (game.winner == Points.RED) {
       return game.red.username;
     }
+  },
+  timer: function (game, color) {
+    var now = TimeSync.serverTime();
+    var time;
+    if (game.moving == Points.BLUE && color == 'blue') {
+      time = game.clock.blue - (now - game.lastTick);
+    } else if (game.moving == Points.RED && color == 'red') {
+      time = game.clock.red - (now - game.lastTick);
+    } else {
+      time = game.clock[color];
+    }
+    if (game.status != 'playing') {
+      time = game.clock[color];
+    }
+    if (time < 0) {
+      time = 0;
+    }
+    return moment(0).milliseconds(time).format("mm:ss");
   }
 });
 

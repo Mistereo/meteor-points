@@ -123,8 +123,6 @@ Meteor.methods({
     }
     var blue = invite.player;
     var red = accept.player;
-    blue.clock = invite.rules.clock;
-    red.clock = invite.rules.clock;
 
     leaveAllInvites(blue._id);
     leaveAllInvites(red._id);

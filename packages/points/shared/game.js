@@ -24,10 +24,33 @@ Points.createGame = function (blue, red, rules) {
     red: red,
     moving: Points.BLUE,
     stopped: {blue: false, red: false},
-    rules: rules
+    rules: rules,
+    clock: {
+      blue: rules.clock.initial * 1000,
+      red: rules.clock.initial * 1000
+    },
+    lastTick: Date.now()
   };
   Points.Rules[game.rules.set].init(game);
   return game;
+};
+
+Points.updateTimer = function (game, color) {
+  if (arguments.length == 1) {
+    color = game.moving;
+  }
+  var prevTick = game.lastTick;
+  game.lastTick = Date.now();
+  var player = (color == Points.BLUE) ? 'blue' : 'red';
+  game.clock[player] = Math.max(game.clock[player] - (game.lastTick - prevTick), 0);
+};
+
+Points.increaseTimer = function (game, color) {
+  if (arguments.length == 1) {
+    color = game.moving;
+  }
+  var player = (color == Points.BLUE) ? 'blue' : 'red';
+  game.clock[player] = Math.min(game.clock[player] + game.rules.clock.increment * 1000, 60 * 60 * 1000 - 1);
 };
 
 Points.move = function (game, move) {
@@ -35,6 +58,8 @@ Points.move = function (game, move) {
   if (!Rules.check(game, move)) {
     return false;
   }
+  Points.updateTimer(game);
+  Points.increaseTimer(game);
   Rules.apply(game, move);
   return true;
 };
@@ -42,6 +67,7 @@ Points.move = function (game, move) {
 Points.finish = function (game, winner) {
   game.winner = winner;
   game.status = 'finished';
+  Points.updateTimer(game);
 };
 
 Points.finishGameWithCurrentResult = function (game) {

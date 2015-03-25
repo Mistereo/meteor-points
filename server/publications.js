@@ -36,7 +36,9 @@ Meteor.publish('game', function (gameId) {
         moving: true,
         score: true,
         lastMove: true,
-        stopped: true
+        stopped: true,
+        clock: true,
+        lastTick: true
       }
     }),
     Messages.find({

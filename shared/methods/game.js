@@ -1,4 +1,4 @@
-function updateRatings(blue, red, winner) {
+updateRatings = function (blue, red, winner) {
   if (!winner) {
     return;
   }
@@ -17,7 +17,7 @@ function updateRatings(blue, red, winner) {
       rating: ratings.red
     }
   });
-}
+};
 
 Meteor.methods({
   'game:move': function (gameId, move) {
