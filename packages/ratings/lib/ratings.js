@@ -18,10 +18,10 @@ Rating.initial = function () {
 
 /**
  * Calculate new ratings.
- * @param {number} blue - Rating of red player.
+ * @param {number} blue - Rating of blue player.
  * @param {number} red - Rating of red player.
  * @param {number} score - Score of blue player -- 1 for win, 0 for lose, 0.5 for draw.
- * @returns {{blue: number, red: number}} - Expected scores for players.
+ * @returns {{blue: number, red: number}} - New ratings for players.
  */
 Rating.calc = function (blue, red, score) {
   var expected = Rating.expected(blue, red);
@@ -33,9 +33,9 @@ Rating.calc = function (blue, red, score) {
 
 /**
  * Calculate expected scores for players.
- * @param {number} blue - Rating of red player.
+ * @param {number} blue - Rating of blue player.
  * @param {number} red - Rating of red player.
- * @returns {{blue: number, red: number}} - New ratings for players.
+ * @returns {{blue: number, red: number}} - Expected scores for players.
  */
 Rating.expected = function (blue, red) {
   var qBlue = Q(blue);
